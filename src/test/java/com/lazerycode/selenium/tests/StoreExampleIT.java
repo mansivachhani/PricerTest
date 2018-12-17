@@ -89,6 +89,48 @@ public class StoreExampleIT extends DriverBase {
         assertEquals("Receipt VAT =>", "0", storePage.getReceiptTotalVAT());
     }
 
+    @Test
+    public void buyAndSellThreeOrangeFromStore() throws Exception {
+        // Create a new WebDriver instance
+        WebDriver driver = getDriver();
+
+        // Go to Store URL
+        driver.get("https://hoff.is/store/index.html");
+
+        StorePageObjects storePage = new StorePageObjects();
+
+        // Select Form values
+        storePage.selectProduct("Orange");
+        storePage.enterQuantity("3");
+        storePage.submit();
+        assertEquals("Message :", "You bought 3 x Orange for a total of 102", storePage.getMessage());
+
+        storePage.sellProduct("Orange");
+        assertEquals("Message :", "You sold 3 x Orange for a total of 102", storePage.getMessage());
+        printTestLog(storePage);
+    }
+
+    @Test
+    public void buyAndSellFourGrapeFromStore() throws Exception {
+        // Create a new WebDriver instance
+        WebDriver driver = getDriver();
+
+        // Go to Store URL
+        driver.get("https://hoff.is/store/index.html");
+
+        StorePageObjects storePage = new StorePageObjects();
+
+        // Select Form values
+        storePage.selectProduct("Grape");
+        storePage.enterQuantity("4");
+        storePage.submit();
+        assertEquals("Message :", "You bought 4 x Grape for a total of 16", storePage.getMessage());
+
+        storePage.sellProduct("Grape");
+        assertEquals("Message :", "You sold 4 x Grape for a total of 16", storePage.getMessage());
+        printTestLog(storePage);
+    }
+
     private void printTestLog(final StorePageObjects storePage) {
         System.out.println("====================");
 

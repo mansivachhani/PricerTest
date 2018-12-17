@@ -14,7 +14,6 @@ All dependencies should now be downloaded and the example PricerTest will have r
 Yes you can specify other browsers to use by using one of the following switches:
 
 - -Dbrowser=firefox
-- -Dbrowser=chrome
 - -Dbrowser=ie
 - -Dbrowser=edge
 - -Dbrowser=opera
